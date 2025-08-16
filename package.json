@@ -11,7 +11,7 @@
     "format:check" : "prettier --check ."
   },
   "lint-staged": {
-    "*.{css,js,html,yml,md}": "prettier"
+    "*.{css,js,html,yml,md}": "npm run lint:fix"
   },
   "repository": {
     "type": "git",
