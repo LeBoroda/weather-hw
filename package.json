@@ -9,7 +9,8 @@
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint . --fix",
     "prepare": "husky",
-    "build": "npx webpack --mode=production"
+    "build": "npx webpack --mode=production",
+    "serve": "npx webpack serve --mode=development"
   },
   "lint-staged": {
     "*.{css,js,html,yml,md}": "npm run lint:fix"
@@ -31,6 +32,7 @@
     "@eslint/js": "^9.33.0",
     "@types/jest": "^30.0.0",
     "babel-jest": "^30.0.5",
+    "css-loader": "^7.1.2",
     "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jest": "^29.0.1",
@@ -42,7 +44,9 @@
     "jest-environment-jsdom": "^30.0.5",
     "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
+    "style-loader": "^4.0.0",
     "webpack": "^5.101.2",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
   }
 }
