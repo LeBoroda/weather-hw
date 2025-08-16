@@ -7,7 +7,8 @@
     "test": "jest",
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint . --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build": "mkdir dist && cp index.html dist && cp -r src dist"
   },
   "lint-staged": {
     "*.{css,js,html,yml,md}": "npm run lint:fix"
