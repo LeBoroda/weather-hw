@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
+  "private": "true",
   "scripts": {
     "test": "jest",
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint . --fix",
     "prepare": "husky",
-    "build": "mkdir dist && cp index.html dist && cp -r src dist"
+    "build": "npx webpack --mode=production"
   },
   "lint-staged": {
     "*.{css,js,html,yml,md}": "npm run lint:fix"
@@ -39,6 +40,8 @@
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
     "lint-staged": "^16.1.5",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "webpack": "^5.101.2",
+    "webpack-cli": "^6.0.1"
   }
 }
