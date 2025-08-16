@@ -2,7 +2,7 @@ name: Build and Test on Pull Request
 on: [pull_request]
 
 jobs:
-  test:
+  lint-test-deploy:
     permissions:
       contents: write
     runs-on: ubuntu-latest
