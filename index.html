@@ -4,13 +4,172 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
     />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Weather Forecast - Blank State</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="src/styles/style.css" />
   </head>
   <body>
-    <h1>There is a spoon.</h1>
-    <div id="app"></div>
+    <div id="weatherApp">
+      <!-- Header -->
+      <header>
+        <div class="container header-container">
+          <h1>
+            <i class="fas fa-cloud-sun"></i>
+            Weather Forecast
+          </h1>
+          <nav class="nav-menu">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+            <label for="menu-toggle" class="menu-toggle-label">
+              <span class="hamburger-icon"></span>
+            </label>
+            <ul class="menu-items">
+              <li><a href="/">Home</a></li>
+
+              <li><a href="weather-data.html">Example Data</a></li>
+              <li>
+                <a href="weather-blank.html" class="active">Blank State</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="page-explanation">
+          <p>
+            This is the blank state of the Weather Forecast app with no weather
+            data or history.
+          </p>
+        </div>
+
+        <!-- Search Form -->
+        <section class="search-section">
+          <div class="card">
+            <h2>Search for a city</h2>
+            <form id="cityForm">
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="cityInput"
+                  placeholder="Enter city name"
+                  aria-label="City name"
+                />
+                <button
+                  type="button"
+                  id="clearButton"
+                  class="clear-button"
+                  aria-label="Clear input"
+                >
+                  <i class="fas fa-times-circle"></i>
+                </button>
+              </div>
+              <button
+                type="submit"
+                id="searchButton"
+                disabled
+                class="btn-primary"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <!-- Desktop layout container for main content and sidebar -->
+        <div class="desktop-container">
+          <!-- Main content - Weather and Map -->
+          <div class="main-content">
+            <!-- Weather Display -->
+            <section class="weather-section">
+              <div class="card">
+                <!-- Empty state - shown initially -->
+                <div class="state-container">
+                  <div class="state-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                  </div>
+                  <h3>No weather data to display</h3>
+                  <p>Search for a city to see the current weather</p>
+                </div>
+
+                <!-- Weather data container - hidden initially -->
+                <div id="weatherData" class="hidden">
+                  <!-- This section is hidden in blank state -->
+                </div>
+              </div>
+            </section>
+
+            <!-- Map Display -->
+            <section class="map-section">
+              <div class="card">
+                <div class="section-header">
+                  <h2>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Location Map
+                  </h2>
+                </div>
+                <div class="map-container">
+                  <!-- Map empty state -->
+                  <div class="state-container">
+                    <i class="fas fa-map"></i>
+                    <p>Search for a city to display its map</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Sidebar - Search History -->
+          <div class="sidebar">
+            <!-- Search History -->
+            <section class="history-section">
+              <div class="card">
+                <div class="section-header">
+                  <h2>
+                    <i class="fas fa-history"></i>
+                    Search History
+                  </h2>
+                </div>
+
+                <div class="history-container">
+                  <div class="history-list">
+                    <!-- Empty history state -->
+                    <div class="state-container">
+                      <i class="fas fa-search"></i>
+                      <p>Your search history will appear here</p>
+                    </div>
+                  </div>
+
+                  <div class="history-actions">
+                    <button class="btn-secondary" disabled>
+                      <i class="fas fa-trash-alt"></i>
+                      Clear History
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="container">
+          <p>
+            Weather Forecast App &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+          </p>
+          <p>Weather data provided by OpenWeatherMap</p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
