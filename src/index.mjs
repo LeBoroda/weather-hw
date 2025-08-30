@@ -1,5 +1,4 @@
 import './styles/style.css';
+import { runLayout } from './layout.js';
 
-// document.querySelector('h1').innerText = 'There is no spoon!';
-// document.querySelector('h1').style.color = 'blue';
-// document.body.style.backgroundColor = 'green';
+runLayout(document.getElementById('weatherApp'));
