@@ -271,6 +271,11 @@ footer p {
   margin-bottom: 0.5rem;
 }
 
+footer a {
+  text-decoration: none;
+  color: var(--gray-300);
+}
+
 /* Cards */
 .card {
   background-color: var(--card-color);
