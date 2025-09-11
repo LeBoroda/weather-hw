@@ -8,9 +8,9 @@ export function getCurrentDateAsText(date) {
   return new Intl.DateTimeFormat('en-US', options).format(date);
 }
 
-export function getCurrentTimeAsText(date) {
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
+export function getCurrentTimeAsText(date, useUTC = false) {
+  let hours = useUTC ? date.getUTCHours() : date.getHours();
+  let minutes = useUTC ? date.getUTCMinutes() : date.getMinutes();
   hours = hours < 10 ? '0' + hours : hours;
   minutes = minutes < 10 ? '0' + minutes : minutes;
 

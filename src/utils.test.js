@@ -23,11 +23,11 @@ describe('Utilities tests', () => {
     });
     it('Get current time as text', () => {
       const date = new Date('2025-09-01T19:52:00.000Z');
-      expect(getCurrentTimeAsText(date)).toBe('21:52');
+      expect(getCurrentTimeAsText(date, true)).toBe('19:52');
     });
     it('Get current time as text with leading 0', () => {
       const date = new Date('2025-09-01T05:02:00.000Z');
-      expect(getCurrentTimeAsText(date)).toBe('07:02');
+      expect(getCurrentTimeAsText(date, true)).toBe('05:02');
     });
     it('Capitalise phrase mamma mia', () => {
       const str = 'mamma mia';
