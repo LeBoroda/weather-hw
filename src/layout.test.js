@@ -5,7 +5,6 @@ import {
   drawHeader,
   drawMain,
   enableSearchButton,
-  performSearch,
   runLayout,
   showMap,
   showWeather,
@@ -44,9 +43,6 @@ describe('App test suite', () => {
     });
     test('Is clearSearchInput() a function', () => {
       expect(clearSearchInput).toBeInstanceOf(Function);
-    });
-    test('Is performSearch() a function', () => {
-      expect(performSearch).toBeInstanceOf(Function);
     });
     test('Is showHistory() a function', () => {
       expect(showHistory).toBeInstanceOf(Function);

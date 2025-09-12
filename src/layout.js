@@ -1,12 +1,11 @@
 import {
   capitaliseFirstLetter,
   clearSearchHistory,
-  getCityWeather,
   getCurrentDateAsText,
   getCurrentTimeAsText,
   getSearchHistory,
-  saveSearchHistory,
 } from './utils';
+import { getCityWeather } from './apiUtils';
 
 export function runLayout(wrapperElement) {
   drawHeader(wrapperElement);
@@ -259,22 +258,7 @@ export function enableSearchButton(searchInput, searchButton) {
 export function clearSearchInput(searchInput, searchButton) {
   searchInput.value = '';
   searchButton.disabled = true;
-}
-
-export async function performSearch(searchInput, searchButton) {
-  try {
-    const cityWeatherObject = await getCityWeather(searchInput.value);
-    saveSearchHistory(searchInput.value);
-    showWeather(cityWeatherObject);
-    showHistory();
-    showMap(cityWeatherObject);
-
-    searchInput.value = '';
-    searchInput.blur();
-    searchButton.disabled = true;
-  } catch (error) {
-    console.error(error);
-  }
+  searchInput.blur();
 }
 
 export function showWeather(cityWeatherObject) {
@@ -360,7 +344,7 @@ export async function showHistory() {
     );
 
     for (const searchItem of newNames) {
-      const cityWeatherObject = await getCityWeather(searchItem); // await обязательный
+      const cityWeatherObject = await getCityWeather(searchItem);
       const historyItem = drawHistoryItem(cityWeatherObject);
       historyList.prepend(historyItem);
 
