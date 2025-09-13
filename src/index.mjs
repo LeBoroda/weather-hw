@@ -1,13 +1,15 @@
 import './styles/style.css';
 import {
-    clearHistory,
-    clearSearchInput,
-    enableSearchButton,
-    runLayout,
-    showHistory, showMap, showWeather,
+  clearHistory,
+  clearSearchInput,
+  enableSearchButton,
+  runLayout,
+  showHistory,
+  showMap,
+  showWeather,
 } from './layout.js';
-import {saveSearchHistory} from "./utils.js";
-import {getCityWeather} from "./apiUtils.js";
+import { saveSearchHistory } from './utils.js';
+import { getCityWeather } from './apiUtils.js';
 
 runLayout(document.getElementById('weatherApp'));
 
@@ -32,14 +34,14 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 export async function performSearch(searchInput, searchButton) {
-    try {
-        const cityWeatherObject = await getCityWeather(searchInput.value);
-        saveSearchHistory(searchInput.value);
-        showWeather(cityWeatherObject);
-        await showHistory();
-        showMap(cityWeatherObject);
-        clearSearchInput(searchInput, searchButton)
-    } catch (error) {
-        console.error(error);
-    }
+  try {
+    const cityWeatherObject = await getCityWeather(searchInput.value);
+    saveSearchHistory(searchInput.value);
+    showWeather(cityWeatherObject);
+    await showHistory();
+    showMap(cityWeatherObject);
+    clearSearchInput(searchInput, searchButton);
+  } catch (error) {
+    console.error(error);
+  }
 }
