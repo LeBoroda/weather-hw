@@ -14,6 +14,7 @@ import {
   saveSearchHistory,
 } from './history-utility.js';
 import { getWeather } from './api-utility.js';
+import { fetchLocation, getMapLink } from './maps-utility.js';
 import { getDateAsText, getTimeAsText } from './text-utility.js';
 
 drawLayout(document.getElementById('weatherApp'));
@@ -23,6 +24,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const clearInput = document.querySelector('#clearButton');
   const searchButton = document.querySelector('#searchButton');
   const clearHistoryButton = document.querySelector('.history-actions button');
+
+  searchLocationWeather();
 
   searchInput.addEventListener('input', () =>
     enableSearchButton(searchInput, searchButton),
@@ -40,6 +43,26 @@ window.addEventListener('DOMContentLoaded', () => {
   clearHistoryButton.addEventListener('click', () => clearHistory());
 });
 
+function searchLocationWeather() {
+  fetchLocation()
+    .then((location) => {
+      getWeather(location)
+        .then((weather) => {
+          weather.searchTime = getTimeAsText(new Date());
+          weather.searchDate = getDateAsText(new Date());
+          drawWeather(weather);
+          drawHistory(getSearchHistory());
+          drawMap(getMapLink(weather));
+        })
+        .catch((error) => {
+          console.error('Failed getting weather', error);
+        });
+    })
+    .catch((error) => {
+      console.error('Failed to get location', error);
+    });
+}
+
 function performSearch(searchInput, searchButton) {
   getWeather(searchInput.value)
     .then((weather) => {
@@ -48,7 +71,7 @@ function performSearch(searchInput, searchButton) {
       drawWeather(weather);
       saveSearchHistory(weather.cityName);
       drawHistory(getSearchHistory());
-      drawMap(weather);
+      drawMap(getMapLink(weather));
     })
     .catch((error) => {
       console.error('Failed getting weather', error);
