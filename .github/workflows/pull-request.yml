@@ -16,6 +16,9 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build --if-present
+        env:
+          OPEN_WEATHER_KEY: ${{ secrets.OPEN_WEATHER_KEY }}
+          GOOGLE_MAPS_KEY: ${{ secrets.GOOGLE_MAPS_KEY }}
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
