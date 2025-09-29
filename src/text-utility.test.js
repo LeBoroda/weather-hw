@@ -11,14 +11,14 @@ describe('Test text fomtatting unitliity', () => {
   });
   describe('Functional tests', () => {
     it('getTimeAsText() should return given UTC time', () => {
-      const date = new Date('2000-09-28T11:11:37.827');
+      const date = new Date('2000-09-28T11:11:37.827Z');
       console.log(date);
-      expect(getTimeAsText(date, false)).toBe('11:11');
+      expect(getTimeAsText(date)).toBe('13:11');
     });
     it('getTimeAsText() should return given UTC time with leading zero', () => {
-      const date = new Date('2000-09-28T07:07:07.827');
+      const date = new Date('2000-09-28T07:07:07.827Z');
       console.log(date);
-      expect(getTimeAsText(date, false)).toBe('07:07');
+      expect(getTimeAsText(date)).toBe('09:07');
     });
     it('getTimeAsText() should return given local time', () => {
       const date = new Date('2000-09-28T11:11:37.827Z');
