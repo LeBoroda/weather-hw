@@ -421,8 +421,7 @@ describe('Layout rendering tests', () => {
         weatherData.querySelector('.weather-header p').innerText,
       ).toContain('Sunday, January 01, 0000');
     });
-    it('Weather header should container current Date', () => {});
-    it('Weather header should contain last update date', () => {
+    it('Weather header should contain last update time', () => {
       expect(weatherData.querySelector('.last-updated')).not.toBeNull();
       expect(weatherData.querySelector('.last-updated i')).not.toBeNull();
       expect(weatherData.querySelector('.last-updated i')).toHaveClass(
