@@ -1,7 +1,7 @@
 const apiKey = process.env.OPEN_WEATHER_KEY;
 
 function fetchCityByName(name) {
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${apiKey}`;
   return fetch(url)
     .then((response) => {
       if (!response.ok) {
