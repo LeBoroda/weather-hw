@@ -1,7 +1,7 @@
-// const apiKey = process.env.OPEN_WEATHER_KEY;
+const apiKey = process.env.OPEN_WEATHER_KEY;
 
 function fetchCityByName(name) {
-  const url = `https://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=fe7d68f7601a014913c3e92cb08ee83e`;
+  const url = `https://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=1&appid=${apiKey}`;
   return fetch(url)
     .then((response) => {
       if (!response.ok) {
@@ -18,7 +18,7 @@ function fetchCityByName(name) {
 }
 
 function fetchWeatherByCoordinates(cityData) {
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${cityData.lat}&lon=${cityData.lon}&units=metric&appid=fe7d68f7601a014913c3e92cb08ee83e`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${cityData.lat}&lon=${cityData.lon}&units=metric&appid=${apiKey}`;
   return fetch(url)
     .then((response) => {
       if (!response.ok) {
