@@ -2,7 +2,7 @@
   "name": "weather-hw",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "src/index.mjs",
   "private": "true",
   "scripts": {
     "test": "jest",
@@ -30,6 +30,8 @@
     "@babel/core": "^7.28.3",
     "@babel/preset-env": "^7.28.3",
     "@eslint/js": "^9.33.0",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^30.0.0",
     "babel-jest": "^30.0.5",
     "css-loader": "^7.1.2",
@@ -43,11 +45,13 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
+    "jest-fetch-mock": "^3.0.3",
     "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
     "style-loader": "^4.0.0",
     "webpack": "^5.101.2",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "webpack-dev-server": "^5.2.2",
+    "whatwg-fetch": "^3.6.20"
   }
 }
