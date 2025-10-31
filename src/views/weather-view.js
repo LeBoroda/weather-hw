@@ -118,7 +118,7 @@ export class WeatherView {
     emptyHistory.classList.remove('hidden');
     this.clearHistoryButton.disabled = true;
   }
-  //Todo check if works on empty input
+
   enableSearchButton(enabled) {
     if (this.searchButton) {
       this.searchButton.disabled = !enabled;
@@ -136,16 +136,24 @@ export class WeatherView {
   getSearchInputValue() {
     return this.searchInput ? this.searchInput.value.trim() : '';
   }
-  //TODO CHECK WTF
+
   showError(message) {
     const weatherData = document.querySelector('#weatherData');
-    weatherData.innerHTML = `<div class="error-message">${message}</div>`;
+    const infoElement = document.createElement('div');
+    infoElement.classList.add('error-message');
+    infoElement.innerText = `${message}`;
+    weatherData.innerHTML = '';
+    weatherData.append(infoElement);
     weatherData.classList.remove('hidden');
   }
-  //TODO CHECK WTF
+
   showLoading() {
     const weatherData = document.querySelector('#weatherData');
-    weatherData.innerHTML = `<div class="loading-message">Loading weather data...</div>`;
+    const infoElement = document.createElement('div');
+    infoElement.classList.add('loading-message');
+    infoElement.innerText = 'Loading weather data...';
+    weatherData.innerHTML = '';
+    weatherData.append(infoElement);
     weatherData.classList.remove('hidden');
   }
 
