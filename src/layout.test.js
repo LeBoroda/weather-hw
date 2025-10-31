@@ -97,7 +97,7 @@ describe('Layout rendering tests', () => {
         expect(headerTitle).not.toBe(null);
         expect(headerTitle.querySelector('span')).not.toBe(null);
         expect(headerTitle.querySelector('span').innerText).toContain(
-          'Weather Forecast',
+          'WeatherModel Forecast',
         );
       });
     });
@@ -129,7 +129,7 @@ describe('Layout rendering tests', () => {
         const textParagraphs = footerContainer.querySelectorAll('p');
         expect(textParagraphs[1]).not.toBe(null);
         expect(textParagraphs[1].innerText).toContain(
-          'Weather data provided by',
+          'WeatherModel data provided by',
         );
       });
       it('Sources should have source link and text', () => {
@@ -191,20 +191,20 @@ describe('Layout rendering tests', () => {
           const main = el.querySelector('main');
           expect(main.querySelector('.desktop-container')).not.toBe(null);
         });
-        describe('Weather section tests', () => {
+        describe('WeatherModel section tests', () => {
           it('Main info section should contain weather section', () => {
             const mainInfoSection = el.querySelector('main .desktop-container');
             expect(mainInfoSection.querySelector('.weather-section')).not.toBe(
               null,
             );
           });
-          it('Weather section should contain weather card without data', () => {
+          it('WeatherModel section should contain weather card without data', () => {
             const weatherSection = el.querySelector('.weather-section');
             expect(weatherSection.querySelector('.state-container')).not.toBe(
               null,
             );
           });
-          it('Weather card without data should have icon, header and prompt', () => {
+          it('WeatherModel card without data should have icon, header and prompt', () => {
             const weatherCard = el.querySelector(
               '.weather-section .state-container',
             );
@@ -222,11 +222,11 @@ describe('Layout rendering tests', () => {
               'Search for a city to see the current weather',
             );
           });
-          it('Weather section should contain weather card with data', () => {
+          it('WeatherModel section should contain weather card with data', () => {
             const weatherSection = el.querySelector('.weather-section');
             expect(weatherSection.querySelector('#weatherData')).not.toBe(null);
           });
-          it('Weather card with data should be hidden', () => {
+          it('WeatherModel card with data should be hidden', () => {
             expect(el.querySelector('#weatherData')).toHaveClass('hidden');
           });
         });
@@ -308,22 +308,22 @@ describe('Layout rendering tests', () => {
             const mainInfoSection = el.querySelector('main .desktop-container');
             expect(mainInfoSection.querySelector('.sidebar')).not.toBe(null);
           });
-          describe('History section tests', () => {
+          describe('HistoryModel section tests', () => {
             it('Sidebar should contain history section', () => {
               const sidebar = el.querySelector('.desktop-container .sidebar');
               expect(sidebar.querySelector('.history-section')).not.toBe(null);
             });
-            it('History section should contain history card', () => {
+            it('HistoryModel section should contain history card', () => {
               const historySection = el.querySelector('.history-section');
               expect(historySection.querySelector('.card')).not.toBeNull();
             });
-            it('History section should contain results', () => {
+            it('HistoryModel section should contain results', () => {
               const historySection = el.querySelector('.history-section');
               expect(
                 historySection.querySelector('.history-container'),
               ).not.toBeNull();
             });
-            it('History card should container header with text and icon', () => {
+            it('HistoryModel card should container header with text and icon', () => {
               const historyCard = el.querySelector('.history-section .card');
               const historyCardHeader =
                 historyCard.querySelector('.section-header');
@@ -336,9 +336,9 @@ describe('Layout rendering tests', () => {
               expect(historyCardHeader.querySelector('span')).not.toBeNull();
               expect(
                 historyCardHeader.querySelector('span').innerText,
-              ).toContain('Search History');
+              ).toContain('Search HistoryModel');
             });
-            it('History section should contain history list with empty card', () => {
+            it('HistoryModel section should contain history list with empty card', () => {
               const historyList = el.querySelector('.history-list');
               const emptyHistory =
                 historyList.querySelector('.state-container');
@@ -354,7 +354,7 @@ describe('Layout rendering tests', () => {
                 'Your search history will appear here',
               );
             });
-            it('History section should contain history actions with clear history button', () => {
+            it('HistoryModel section should contain history actions with clear history button', () => {
               const historyActions = el.querySelector('.history-actions');
               const clearHistoryButton =
                 historyActions.querySelector('.btn-secondary');
@@ -368,14 +368,14 @@ describe('Layout rendering tests', () => {
               expect(clearHistoryButton.querySelector('span')).not.toBeNull();
               expect(
                 clearHistoryButton.querySelector('span').innerText,
-              ).toContain('Clear History');
+              ).toContain('Clear HistoryModel');
             });
           });
         });
       });
     });
   });
-  describe('Weather info creation tests', () => {
+  describe('WeatherModel info creation tests', () => {
     let weatherDataObject;
     let weatherData;
     beforeEach(() => {
@@ -404,24 +404,24 @@ describe('Layout rendering tests', () => {
       weatherData = el.querySelector('#weatherData');
       drawWeather(weatherDataObject);
     });
-    it('Weather card should not contain emptyWeather', () => {
+    it('WeatherModel card should not contain emptyWeather', () => {
       const weatherCard = el.querySelector('.weather-section .card');
       const emptyWeatherContainer =
         weatherCard.querySelector('.state-container');
       expect(emptyWeatherContainer).toHaveClass('hidden');
     });
-    it('Weather data should be visible', () => {
+    it('WeatherModel data should be visible', () => {
       expect(weatherData).not.toHaveClass('hidden');
     });
-    it('Weather data should contain header', () => {
+    it('WeatherModel data should contain header', () => {
       expect(weatherData.querySelector('.weather-header')).not.toBeNull();
     });
-    it('Weather header should contain city name', () => {
+    it('WeatherModel header should contain city name', () => {
       expect(
         weatherData.querySelector('.weather-header p').innerText,
       ).toContain('Sunday, January 01, 0000');
     });
-    it('Weather header should contain last update time', () => {
+    it('WeatherModel header should contain last update time', () => {
       expect(weatherData.querySelector('.last-updated')).not.toBeNull();
       expect(weatherData.querySelector('.last-updated i')).not.toBeNull();
       expect(weatherData.querySelector('.last-updated i')).toHaveClass(
@@ -433,19 +433,19 @@ describe('Layout rendering tests', () => {
         weatherData.querySelector('.last-updated span').innerText,
       ).toContain('15:59');
     });
-    it('Weather info should contain icon', () => {
+    it('WeatherModel info should contain icon', () => {
       expect(weatherData.querySelector('.weather-icon')).not.toBeNull();
       expect(weatherData.querySelector('.weather-icon img').src).toContain(
         '28n',
       );
     });
-    it('Weather temperature should be visible', () => {
+    it('WeatherModel temperature should be visible', () => {
       expect(weatherData.querySelector('.temperature')).not.toBeNull();
       expect(weatherData.querySelector('.temperature').innerText).toContain(
         '666°C',
       );
     });
-    it('Weather description should be visible', () => {
+    it('WeatherModel description should be visible', () => {
       expect(weatherData.querySelector('.weather-description')).not.toBeNull();
       expect(
         weatherData.querySelector('.weather-description').innerText,
@@ -470,7 +470,7 @@ describe('Layout rendering tests', () => {
       );
     });
   });
-  describe('History creation tests', () => {
+  describe('HistoryModel creation tests', () => {
     let cityNames;
     let historyList;
     beforeEach(() => {
@@ -483,7 +483,7 @@ describe('Layout rendering tests', () => {
         'hidden',
       );
     });
-    it('Clear History button should be enabled', () => {
+    it('Clear HistoryModel button should be enabled', () => {
       expect(el.querySelector('.history-actions button')).toBeEnabled();
     });
     it('Number of drawn items should be 3', () => {
@@ -493,7 +493,7 @@ describe('Layout rendering tests', () => {
       drawHistory([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
       expect(historyList.querySelectorAll('.history-item').length).toEqual(10);
     });
-    it('History item should have city name and icon', () => {
+    it('HistoryModel item should have city name and icon', () => {
       drawHistory(['Moscow']);
       expect(historyList.querySelector('h3')).not.toBeNull();
       expect(historyList.querySelector('h3').innerText).toContain('Moscow');

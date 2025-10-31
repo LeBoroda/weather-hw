@@ -1,6 +1,6 @@
 import { fetchLocation, getMapLink } from './maps-utility';
 
-describe('Test Map and location utilities', () => {
+describe('Test Map and locationModel utilities', () => {
   let mockData;
   beforeEach(() => {
     mockData = {
