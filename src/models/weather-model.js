@@ -48,12 +48,8 @@ export class WeatherModel {
 
       return weatherData;
     } catch (error) {
-      console.error('Капитальне ащипька ', error);
+      console.error('Very big error master boss! It says: ', error);
       throw error;
     }
-  }
-
-  getCurrentWeather() {
-    return this.currentWeather;
   }
 }

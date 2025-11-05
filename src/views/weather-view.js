@@ -1,5 +1,3 @@
-import { getDateAsText, getTimeAsText } from '../utilities/text-utility';
-
 export class WeatherView {
   constructor() {
     this.rootElement = null;
@@ -49,9 +47,6 @@ export class WeatherView {
       '.weather-section .state-container',
     );
 
-    cityWeatherDataObject.searchTime = getTimeAsText(new Date());
-    cityWeatherDataObject.searchDate = getDateAsText(new Date());
-
     weatherData.innerHTML = '';
 
     const weatherHeaderContainer = this.createWeatherHeaderContainer(
@@ -76,12 +71,6 @@ export class WeatherView {
     for (const cityName of searchHistoryNames) {
       const historyItem = this.createHistoryItem(cityName);
       historyList.prepend(historyItem);
-
-      const historyItems = historyList.querySelectorAll('.history-item');
-      if (historyItems.length > 10) {
-        const lastHistoryItem = historyItems[historyItems.length - 1];
-        if (lastHistoryItem) historyList.removeChild(lastHistoryItem);
-      }
     }
 
     emptyHistory.classList.add('hidden');

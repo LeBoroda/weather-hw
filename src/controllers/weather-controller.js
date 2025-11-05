@@ -3,6 +3,7 @@ import { HistoryModel } from '../models/history-model';
 import { LocationModel } from '../models/location-model';
 import { WeatherView } from '../views/weather-view';
 import { getMapLink } from '../utilities/maps-utility';
+import { getDateAsText, getTimeAsText } from '../utilities/text-utility';
 
 export class WeatherController {
   constructor() {
@@ -74,6 +75,8 @@ export class WeatherController {
   }
 
   displayWeather(weather) {
+    weather.searchTime = getTimeAsText(new Date());
+    weather.searchDate = getDateAsText(new Date());
     this.view.drawWeather(weather);
     this.view.drawHistory(this.historyModel.getHistory());
     this.view.drawMap(getMapLink(weather));
