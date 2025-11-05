@@ -1,4 +1,4 @@
-/* Weather App Styles */
+/* WeatherModel App Styles */
 
 /* Variables */
 :root {
@@ -374,7 +374,7 @@ input:focus {
   cursor: not-allowed;
 }
 
-/* Weather Section */
+/* WeatherModel Section */
 .weather-header {
   display: flex;
   flex-direction: column;
@@ -544,7 +544,7 @@ input:focus {
   }
 }
 
-/* History Section */
+/* HistoryModel Section */
 .history-container {
   display: flex;
   flex-direction: column;
